@@ -5,32 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eddy Holt — PhD Researcher, Carbon Capture</title>
 <meta name="description" content="Eddy Holt — PhD Researcher at the University of Bath, EPSRC Centre for Doctoral Training in Green Industrial Futures. Research in CVD-synthesised membranes for CO₂ capture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f6f8f7;
-    --card: #ffffff;
-    --text: #1d2b26;
-    --muted: #5a6b64;
-    --accent: #1d7a5f;
-    --accent-soft: #e3f1ec;
-    --border: #e2e8e5;
-    --shadow: 0 10px 30px rgba(29, 43, 38, 0.08);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #101714;
-      --card: #1a231f;
-      --text: #e8efec;
-      --muted: #9db0a8;
-      --accent: #4cc9a4;
-      --accent-soft: #21332c;
-      --border: #2a3630;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    }
+    --bg: #0d1412;
+    --card: #161f1b;
+    --text: #e9efec;
+    --muted: #a3b4ac;
+    --accent: #4cc9a4;
+    --border: #26332d;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --linkedin: #2f9bf4;
+    --researchgate: #00ccbb;
+    --orcid: #a6ce39;
+    --email: #f4736a;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
     background: var(--bg);
     color: var(--text);
     line-height: 1.65;
@@ -49,29 +44,19 @@
     width: 100%;
     padding: 3rem 2.5rem;
   }
-  .avatar {
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 1.4rem;
-  }
   h1 {
-    font-size: 2.1rem;
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: 2.4rem;
     letter-spacing: -0.02em;
     margin-bottom: 0.35rem;
   }
   .tagline {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
     color: var(--accent);
-    font-weight: 600;
-    font-size: 1.02rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-style: italic;
     margin-bottom: 1.6rem;
   }
   .about p {
@@ -79,7 +64,6 @@
     margin-bottom: 1rem;
     font-size: 0.98rem;
   }
-  .about p strong { color: var(--text); }
   .divider {
     height: 1px;
     background: var(--border);
@@ -90,7 +74,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--muted);
-    font-weight: 700;
+    font-weight: 500;
     margin-bottom: 0.9rem;
   }
   .links {
@@ -108,22 +92,25 @@
     background: var(--card);
     color: var(--text);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.92rem;
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
   }
-  .links a:hover {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-    transform: translateY(-1px);
-  }
   .links a .dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--c);
     flex-shrink: 0;
   }
+  .links a:hover {
+    border-color: var(--c);
+    transform: translateY(-1px);
+  }
+  .links a.linkedin { --c: var(--linkedin); }
+  .links a.researchgate { --c: var(--researchgate); }
+  .links a.orcid { --c: var(--orcid); }
+  .links a.email { --c: var(--email); }
   footer {
     margin-top: 1.8rem;
     font-size: 0.8rem;
@@ -131,19 +118,18 @@
   }
   @media (max-width: 480px) {
     .card { padding: 2.2rem 1.4rem; }
-    h1 { font-size: 1.7rem; }
+    h1 { font-size: 1.9rem; }
   }
 </style>
 </head>
 <body>
   <main class="card">
-    <div class="avatar" aria-hidden="true">EH</div>
     <h1>Eddy Holt</h1>
     <p class="tagline">PhD Researcher · Carbon Capture &amp; Membrane Technology</p>
 
     <section class="about">
-      <p>I'm a PhD Researcher at the <strong>University of Bath</strong> within the <strong>EPSRC Centre for Doctoral Training in Green Industrial Futures</strong>. My research focuses on one-pot chemical vapour deposition synthesis of high-performance membranes for CO₂ capture, contributing to next-generation carbon capture technologies.</p>
-      <p>I recently graduated from <strong>Swansea University</strong> with a First-Class MEng in Chemical Engineering, establishing a strong foundation in engineering design, process modelling and advanced characterisation techniques.</p>
+      <p>I'm a PhD Researcher at the University of Bath within the EPSRC Centre for Doctoral Training in Green Industrial Futures. My research focuses on one-pot chemical vapour deposition synthesis of high-performance membranes for CO₂ capture, contributing to next-generation carbon capture technologies.</p>
+      <p>I recently graduated from Swansea University with a First-Class MEng in Chemical Engineering, establishing a strong foundation in engineering design, process modelling and advanced characterisation techniques.</p>
       <p>I'm keen to connect with researchers and industry professionals working in carbon capture, membrane technology and sustainable process engineering.</p>
     </section>
 
@@ -151,10 +137,10 @@
 
     <p class="links-heading">Connect with me</p>
     <nav class="links">
-      <a href="https://www.linkedin.com/in/eddy-holt-162878206/" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
-      <a href="https://www.researchgate.net/profile/Edward-Holt-3" target="_blank" rel="noopener"><span class="dot"></span>ResearchGate</a>
-      <a href="https://orcid.org/0009-0009-5843-2432" target="_blank" rel="noopener"><span class="dot"></span>ORCID</a>
-      <a href="mailto:EddyHolt@gmail.com"><span class="dot"></span>Email me</a>
+      <a class="linkedin" href="https://www.linkedin.com/in/eddy-holt-162878206/" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+      <a class="researchgate" href="https://www.researchgate.net/profile/Edward-Holt-3" target="_blank" rel="noopener"><span class="dot"></span>ResearchGate</a>
+      <a class="orcid" href="https://orcid.org/0009-0009-5843-2432" target="_blank" rel="noopener"><span class="dot"></span>ORCID</a>
+      <a class="email" href="mailto:EddyHolt@gmail.com"><span class="dot"></span>Email me</a>
     </nav>
 
     <footer>© 2026 Eddy Holt</footer>
