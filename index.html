@@ -23,12 +23,11 @@
     --email: #f4736a;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: var(--bg); }
   body {
-    <iframe src="/pecvd-bg.html#bare" aria-hidden="true" tabindex="-1"
-  style="position:fixed;inset:0;width:100%;height:100%;border:0;z-index:-1;pointer-events:none"></iframe>
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
-    background: var(--bg);
+    background: transparent;
     color: var(--text);
     line-height: 1.65;
     min-height: 100vh;
@@ -37,8 +36,11 @@
     justify-content: center;
     padding: 2rem 1rem;
   }
+  .bg-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; z-index: -1; pointer-events: none; }
   .card {
-    background: var(--card);
+    background: rgba(22, 31, 27, 0.72);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 20px;
     box-shadow: var(--shadow);
@@ -125,6 +127,7 @@
 </style>
 </head>
 <body>
+  <iframe class="bg-frame" src="/pecvd-bg.html#bare" title="" aria-hidden="true" tabindex="-1"></iframe>
   <main class="card">
     <h1>Eddy Holt</h1>
     <p class="tagline">PhD Researcher · Carbon Capture &amp; Membrane Technology</p>
