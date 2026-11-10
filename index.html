@@ -36,7 +36,8 @@
     justify-content: center;
     padding: 2rem 1rem;
   }
-  .bg-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; z-index: -1; pointer-events: none; }
+  .bg-video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; pointer-events: none; background: #000; }
+  .bg-shade { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, rgba(5, 8, 7, 0.45) 0%, rgba(5, 8, 7, 0.8) 100%); }
   .card {
     background: rgba(22, 31, 27, 0.35);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -126,7 +127,10 @@
 </style>
 </head>
 <body>
-  <iframe class="bg-frame" src="/pecvd-bg.html#bare" title="" aria-hidden="true" tabindex="-1"></iframe>
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="pecvd-bg-poster.jpg" aria-hidden="true" tabindex="-1">
+    <source src="pecvd-bg.mp4" type="video/mp4">
+  </video>
+  <div class="bg-shade" aria-hidden="true"></div>
   <main class="card">
     <h1>Eddy Holt</h1>
     <p class="tagline">PhD Researcher · Carbon Capture &amp; Membrane Technology</p>
