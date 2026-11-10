@@ -7,122 +7,166 @@
 <meta name="description" content="Eddy Holt — PhD Researcher at the University of Bath, EPSRC Centre for Doctoral Training in Green Industrial Futures. Research in CVD-synthesised membranes for CO₂ capture.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d1412;
-    --card: #161f1b;
-    --text: #e9efec;
-    --muted: #a3b4ac;
-    --accent: #4cc9a4;
-    --border: #26332d;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --bg: #050607;
+    --text: #f1f3f6;
+    --muted: #b4bcc6;
+    --steel: #8d98a5;
+    --plasma: #b69cff;
+    --line: rgba(255, 255, 255, 0.14);
     --linkedin: #2f9bf4;
     --researchgate: #00ccbb;
     --orcid: #a6ce39;
     --email: #f4736a;
+    --shade: 0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { background: var(--bg); }
+  html { background: var(--bg); scroll-behavior: smooth; }
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    background: transparent;
     color: var(--text);
-    line-height: 1.65;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 1rem;
+    line-height: 1.7;
+    overflow-x: hidden;
   }
+
+  /* fixed video background, darkens as you scroll */
   .bg-video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; pointer-events: none; background: #000; }
-  .bg-shade { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 50% 45%, rgba(5, 8, 7, 0.45) 0%, rgba(5, 8, 7, 0.8) 100%); }
-  .card {
-    background: rgba(22, 31, 27, 0.35);
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    max-width: 680px;
-    width: 100%;
-    padding: 3rem 2.5rem;
+  .bg-shade {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(5, 6, 7, 0.55) 0%, rgba(5, 6, 7, 0.82) 100%),
+      rgba(5, 6, 7, calc(var(--shade) * 0.5));
   }
+
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--steel);
+  }
+
+  /* corner markers, like a technical drawing */
+  .frame { position: fixed; inset: 18px; pointer-events: none; z-index: 5; }
+  .frame i { position: absolute; width: 22px; height: 22px; border: 1px solid var(--line); }
+  .frame i:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+  .frame i:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+  .frame i:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+  .frame i:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+  section {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 1.5rem;
+  }
+
+  /* ---------- hero: name + links at the centre ---------- */
+  .hero { align-items: center; text-align: center; position: relative; }
   h1 {
-    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-family: "Fraunces", Georgia, serif;
     font-weight: 600;
-    font-size: 2.4rem;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.35rem;
+    font-size: clamp(3rem, 11vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 40px rgba(0, 0, 0, 0.7);
   }
   .tagline {
-    font-family: "Fraunces", Georgia, "Times New Roman", serif;
-    color: var(--accent);
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-family: "Fraunces", Georgia, serif;
     font-style: italic;
-    margin-bottom: 1.6rem;
-  }
-  .about p {
-    color: var(--muted);
-    margin-bottom: 1rem;
-    font-size: 0.98rem;
-  }
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 1.8rem 0;
-  }
-  .links-heading {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--muted);
     font-weight: 500;
-    margin-bottom: 0.9rem;
+    font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+    color: var(--plasma);
+    margin-top: 1rem;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
   }
+  .links-heading { margin: 3rem 0 1.1rem; }
   .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+    width: min(100%, 780px);
   }
   .links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.6rem 1.1rem;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text);
+    --c: var(--plasma);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    padding: 1rem 1.1rem 1.1rem;
+    text-align: left;
     text-decoration: none;
+    color: var(--text);
     font-weight: 500;
-    font-size: 0.92rem;
-    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    font-size: 1.02rem;
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--c);
+    background: rgba(10, 12, 15, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   }
-  .links a .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--c);
-    flex-shrink: 0;
+  .links a .num { color: var(--c); letter-spacing: 0.18em; }
+  .links a .arrow { position: absolute; top: 0.85rem; right: 1rem; color: var(--steel); transition: transform 0.2s ease, color 0.2s ease; }
+  .links a:hover, .links a:focus-visible {
+    transform: translateY(-4px);
+    background: rgba(16, 19, 24, 0.8);
+    box-shadow: 0 14px 40px -18px var(--c);
+    outline: none;
   }
-  .links a:hover {
-    border-color: var(--c);
-    transform: translateY(-1px);
-  }
+  .links a:hover .arrow, .links a:focus-visible .arrow { transform: translate(3px, -3px); color: var(--c); }
   .links a.linkedin { --c: var(--linkedin); }
   .links a.researchgate { --c: var(--researchgate); }
   .links a.orcid { --c: var(--orcid); }
   .links a.email { --c: var(--email); }
-  footer {
-    margin-top: 1.8rem;
-    font-size: 0.8rem;
-    color: var(--muted);
+
+  .scroll-cue {
+    margin-top: 2.8rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    text-decoration: none;
   }
-  @media (max-width: 480px) {
-    .card { padding: 2.2rem 1.4rem; }
-    h1 { font-size: 1.9rem; }
+  .scroll-cue::after {
+    content: ""; width: 1px; height: 38px;
+    background: linear-gradient(var(--plasma), transparent);
+    animation: drip 2s ease-in-out infinite;
+    transform-origin: top;
+  }
+  @keyframes drip { 0% { transform: scaleY(0); opacity: 1; } 70% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1); opacity: 0; } }
+
+  /* ---------- scrolling panels ---------- */
+  .panel { max-width: 1040px; margin: 0 auto; width: 100%; }
+  .panel .inner { max-width: 620px; border-left: 1px solid var(--line); padding-left: clamp(1.1rem, 3vw, 2rem); }
+  .panel.right .inner { margin-left: auto; }
+  .panel .mono b { color: var(--plasma); font-weight: 500; }
+  .panel p.body {
+    margin-top: 1.2rem;
+    font-size: clamp(1.1rem, 2.1vw, 1.42rem);
+    line-height: 1.6;
+    color: var(--text);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85);
+  }
+
+  footer { text-align: center; padding: 0 1.5rem 3rem; }
+
+  /* reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 700px) {
+    .links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .links a { gap: 1.1rem; }
+    .panel.right .inner { margin-left: 0; }
+    .frame { inset: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .scroll-cue::after { animation: none; }
   }
 </style>
 </head>
@@ -131,27 +175,58 @@
     <source src="pecvd-bg.mp4" type="video/mp4">
   </video>
   <div class="bg-shade" aria-hidden="true"></div>
-  <main class="card">
-    <h1>Eddy Holt</h1>
-    <p class="tagline">PhD Researcher · Carbon Capture &amp; Membrane Technology</p>
+  <div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-    <section class="about">
-      <p>I'm a PhD Researcher at the University of Bath within the EPSRC Centre for Doctoral Training in Green Industrial Futures. My research focuses on one-pot chemical vapour deposition synthesis of high-performance membranes for CO₂ capture, contributing to next-generation carbon capture technologies.</p>
-      <p>I recently graduated from Swansea University with a First-Class MEng in Chemical Engineering, establishing a strong foundation in engineering design, process modelling and advanced characterisation techniques.</p>
-      <p>I'm keen to connect with researchers and industry professionals working in carbon capture, membrane technology and sustainable process engineering.</p>
+  <main>
+    <section class="hero">
+      <h1>Eddy Holt</h1>
+      <p class="tagline">PhD Researcher · Carbon Capture &amp; Membrane Technology</p>
+
+      <p class="links-heading mono">Connect with me</p>
+      <nav class="links">
+        <a class="linkedin" href="https://www.linkedin.com/in/eddy-holt-162878206/" target="_blank" rel="noopener"><span class="num mono">01</span>LinkedIn<span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="researchgate" href="https://www.researchgate.net/profile/Edward-Holt-3" target="_blank" rel="noopener"><span class="num mono">02</span>ResearchGate<span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="orcid" href="https://orcid.org/0009-0009-5843-2432" target="_blank" rel="noopener"><span class="num mono">03</span>ORCID<span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="email" href="mailto:EddyHolt@gmail.com"><span class="num mono">04</span>Email me<span class="arrow" aria-hidden="true">↗</span></a>
+      </nav>
+
+      <a class="scroll-cue mono" href="#research">Scroll</a>
     </section>
 
-    <div class="divider"></div>
+    <section class="panel right" id="research">
+      <div class="inner reveal">
+        <p class="mono"><b>01</b> — Research</p>
+        <p class="body">I'm a PhD Researcher at the University of Bath within the EPSRC Centre for Doctoral Training in Green Industrial Futures. My research focuses on one-pot chemical vapour deposition synthesis of high-performance membranes for CO₂ capture, contributing to next-generation carbon capture technologies.</p>
+      </div>
+    </section>
 
-    <p class="links-heading">Connect with me</p>
-    <nav class="links">
-      <a class="linkedin" href="https://www.linkedin.com/in/eddy-holt-162878206/" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
-      <a class="researchgate" href="https://www.researchgate.net/profile/Edward-Holt-3" target="_blank" rel="noopener"><span class="dot"></span>ResearchGate</a>
-      <a class="orcid" href="https://orcid.org/0009-0009-5843-2432" target="_blank" rel="noopener"><span class="dot"></span>ORCID</a>
-      <a class="email" href="mailto:EddyHolt@gmail.com"><span class="dot"></span>Email me</a>
-    </nav>
+    <section class="panel">
+      <div class="inner reveal">
+        <p class="mono"><b>02</b> — Background</p>
+        <p class="body">I recently graduated from Swansea University with a First-Class MEng in Chemical Engineering, establishing a strong foundation in engineering design, process modelling and advanced characterisation techniques.</p>
+      </div>
+    </section>
 
-    <footer>© 2026 Eddy Holt</footer>
+    <section class="panel right">
+      <div class="inner reveal">
+        <p class="mono"><b>03</b> — Connect</p>
+        <p class="body">I'm keen to connect with researchers and industry professionals working in carbon capture, membrane technology and sustainable process engineering.</p>
+      </div>
+    </section>
   </main>
+
+  <footer class="mono">© 2026 Eddy Holt</footer>
+
+<script>
+  // fade panels in as they scroll into view
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  // darken the video slightly once you leave the first screen
+  addEventListener('scroll', function () {
+    document.documentElement.style.setProperty('--shade', Math.min(1, scrollY / innerHeight).toFixed(3));
+  }, { passive: true });
+</script>
 </body>
 </html>
